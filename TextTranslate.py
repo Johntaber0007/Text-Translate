@@ -10,11 +10,12 @@ import google.generativeai as genai
 class TranslatorApp(QWidget):
     def __init__(self):
         super().__init__()
+        self.api_key = "your api key"
         self.initUI()
 
     def initUI(self):
         self.setWindowTitle("Text Translate with Gemini AI by Johntaber")
-        self.setFixedSize(800, 600)
+        self.setFixedSize(600, 400)
 
         self.set_window_icon()
 
@@ -46,11 +47,6 @@ class TranslatorApp(QWidget):
 
         control_layout = QVBoxLayout()
 
-        self.api_key_label = QLabel("Enter API Key:")
-        self.api_key_input = QLineEdit(self)
-        control_layout.addWidget(self.api_key_label)
-        control_layout.addWidget(self.api_key_input)
-
         self.prompt_label = QLabel("Enter your prompt:")
         self.prompt_input = QLineEdit(self)
         control_layout.addWidget(self.prompt_label)
@@ -77,16 +73,15 @@ class TranslatorApp(QWidget):
         self.setWindowIcon(QIcon(pixmap))
 
     def start_translation_text(self):
-        api_key = self.api_key_input.text()
         prompt = self.prompt_input.text()
         text_to_translate = self.input_text.toPlainText()
 
-        if not api_key or not prompt or not text_to_translate.strip():
-            self.status_display.append("Please enter API key, prompt, and text to translate!")
+        if not prompt or not text_to_translate.strip():
+            self.status_display.append("Please enter prompt and text to translate!")
             return
 
         self.status_display.append("Starting translation...")
-        self.perform_translation(api_key, prompt, text_to_translate)
+        self.perform_translation(self.api_key, prompt, text_to_translate)
 
     def perform_translation(self, api_key, prompt, text):
         genai.configure(api_key=api_key)
