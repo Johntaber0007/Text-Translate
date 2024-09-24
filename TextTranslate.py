@@ -1,6 +1,4 @@
-from PyQt6.QtWidgets import (
-    QApplication, QWidget, QLabel, QPushButton, QLineEdit, QTextEdit, QVBoxLayout, QHBoxLayout
-)
+from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QPushButton, QLineEdit, QTextEdit, QVBoxLayout, QHBoxLayout)
 from PyQt6.QtGui import QPixmap, QImage, QIcon
 from PyQt6.QtCore import QByteArray
 import base64
@@ -24,7 +22,7 @@ class TranslatorApp(QWidget):
         text_layout = QHBoxLayout()
 
         input_layout = QVBoxLayout()
-        self.input_label = QLabel("Text to translate:")
+        self.input_label = QLabel("Text:")
         self.input_text = QTextEdit(self)
         input_layout.addWidget(self.input_label)
         input_layout.addWidget(self.input_text)
@@ -47,7 +45,7 @@ class TranslatorApp(QWidget):
 
         control_layout = QVBoxLayout()
 
-        self.prompt_label = QLabel("Enter your prompt:")
+        self.prompt_label = QLabel("Prompt:")
         self.prompt_input = QLineEdit(self)
         control_layout.addWidget(self.prompt_label)
         control_layout.addWidget(self.prompt_input)
