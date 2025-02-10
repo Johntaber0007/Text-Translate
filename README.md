@@ -6,4 +6,4 @@
 
 *จำเป็นต้องมี API Key ของ Gemini
 
-อย่าลืม pip install PyQt6 และ pip install google-generativeai
+อย่าลืมติดตั้งโมดุล pip install PyQt6 และ pip install google-generativeai ก่อนเปิดใช้งาน
